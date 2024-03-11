@@ -33,8 +33,10 @@ export const useContentStore = defineStore('content-store', () => {
     }
 
     const getData = () => {
-        getUsers().then(response=> authors.value = response.data).catch(e => console.error(e))
-        getContent().then(response => setAuthorsToPosts(response.data)).catch(e => console.error(e));
+        getUsers().then((usersResponse)=> {
+            authors.value = usersResponse.data;
+            getContent().then(contentResponse => setAuthorsToPosts(contentResponse.data)).catch(e => console.error(e));
+        }).catch(e => console.error(e))
     }
 
     const setFilterValue = (value: string) => {
@@ -43,7 +45,7 @@ export const useContentStore = defineStore('content-store', () => {
 
     const filterData = () => {
         if (filterValue.value) {
-            contentItems.value = contentItems.value?.filter(data => data.author === filterValue.value);
+            contentItems.value = formedPosts.value?.filter(data => data.author === filterValue.value);
         }
         else contentItems.value = formedPosts.value;
     }
