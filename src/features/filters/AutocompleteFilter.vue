@@ -32,7 +32,7 @@ const setSelectedValue = (value: string) => {
 </script>
 
 <template>
-    <div class="col-5 position-relative">
+    <div class="col-md-5 col-11 position-relative filter">
       <div class="d-flex">
         <button class="search-button" @click="filterData"><i class="bi bi-search"></i></button>
         <input
