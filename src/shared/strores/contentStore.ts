@@ -20,6 +20,7 @@ export const useContentStore = defineStore('content-store', () => {
     const filterValue = ref<string>();
     const authors = ref<User[]>();
     const contentItems = ref<ContentItem[]>();
+    const formedPosts = ref<ContentItem[]>();
 
     const setAuthorsToPosts = (posts: ContentItem[]) => {
         const postsData = posts;
@@ -28,6 +29,7 @@ export const useContentStore = defineStore('content-store', () => {
             if (author) post.author = author.name;
         })
         contentItems.value = postsData;
+        formedPosts.value = postsData;
     }
 
     const getData = () => {
@@ -39,10 +41,18 @@ export const useContentStore = defineStore('content-store', () => {
         filterValue.value = value
     }
 
+    const filterData = () => {
+        if (filterValue.value) {
+            contentItems.value = contentItems.value?.filter(data => data.author === filterValue.value);
+        }
+        else contentItems.value = formedPosts.value;
+    }
+
     return {
         authors,
         contentItems,
         setFilterValue,
+        filterData,
         getData
     }
 })
