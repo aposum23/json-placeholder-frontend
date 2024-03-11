@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="col-3 card">
+  <div class="col-lg-3 col-md-5 col-11 card">
     <h3>{{title}}</h3>
     <p>{{text}}</p>
     <span>{{author}}</span>
