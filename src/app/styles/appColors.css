@@ -1,0 +1,9 @@
+:root {
+    --background-color-main: #ffffff;
+    --background-color-additional: #eefbfd;
+    --text-header-color: #4690ff;
+    --text-main-color: #252525;
+    --text-additional-color: #868686;
+    --border-color: rgba(125, 125, 125, 0.27);
+    --shadow-color: #373737
+}

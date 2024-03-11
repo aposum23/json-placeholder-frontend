@@ -1,0 +1,13 @@
+@import './styles/appColors.css';
+
+body {
+  margin: 0;
+  background: var(--background-color-additional) !important;
+}
+
+#app {
+}
+
+input {
+  outline:none;
+}
