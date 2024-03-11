@@ -45,7 +45,7 @@ const setSelectedValue = (value: string) => {
         <span v-if="matches.length === 0">No matches :(</span>
         <ul v-if="matches.length !== 0">
           <template v-for="author in matches">
-            <li @click="setSelectedValue(author.name)">{{author.name}}</li>
+            <li @click="setSelectedValue(author.name)" class="list-item">{{author.name}}</li>
           </template>
         </ul>
       </div>
@@ -79,5 +79,13 @@ const setSelectedValue = (value: string) => {
   & ul {
     list-style-type: none;
   }
+}
+
+.list-item {
+  cursor: pointer;
+}
+
+.list-item:hover {
+  color: var(--text-header-color);
 }
 </style>
